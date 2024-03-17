@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+
+declare var JitsiMeetExternalAPI: any;
 
 @Component({
   selector: 'app-jitsi-api-client',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './jitsi-api-client.component.css'
 })
 export class JitsiApiClientComponent {
+  @Input() meetingRoom!: string;
+  @Input() name!: string;
 
 }

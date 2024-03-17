@@ -1,0 +1,12 @@
+.jitsi-container {
+  padding-bottom: 20pt;
+
+  .control-btn-group {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .participants-card {
+    height: 350px;
+  }
+}

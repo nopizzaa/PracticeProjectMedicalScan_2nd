@@ -51,7 +51,7 @@
   </div>
 
   <div *ngIf="showJitsiClientComponent">
-    <app-jitsi-api-client></app-jitsi-api-client>
+    <app-jitsi-api-client [meetingRoom]="meetingRoom" [name]="name"></app-jitsi-api-client>
   </div>
 </div>
 
