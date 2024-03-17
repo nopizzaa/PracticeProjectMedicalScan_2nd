@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { JitsiConnectComponent } from './jitsi-connect/jitsi-connect.component';
 import {RouterModule} from "@angular/router";
 import { JitsiApiClientComponent } from './jitsi-api-client/jitsi-api-client.component';
+import {ReadyToConnectService} from "../services/ready-to-connect.service";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -19,8 +21,10 @@ import { JitsiApiClientComponent } from './jitsi-api-client/jitsi-api-client.com
     RouterModule.forRoot([
       {path: '', component: JitsiConnectComponent, pathMatch: 'full'},
     ]),
+    ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    ReadyToConnectService
+  ],  bootstrap: [AppComponent]
 })
 export class AppModule { }
