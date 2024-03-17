@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JitsiConnectComponent } from './jitsi-connect/jitsi-connect.component';
 import {RouterModule} from "@angular/router";
+import { JitsiApiClientComponent } from './jitsi-api-client/jitsi-api-client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    JitsiConnectComponent
+    JitsiConnectComponent,
+    JitsiApiClientComponent
   ],
   imports: [
     BrowserModule,
