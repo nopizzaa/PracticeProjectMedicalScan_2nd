@@ -8,12 +8,16 @@ import {RouterModule} from "@angular/router";
 import { JitsiApiClientComponent } from './jitsi-api-client/jitsi-api-client.component';
 import {ReadyToConnectService} from "../services/ready-to-connect.service";
 import {ReactiveFormsModule} from "@angular/forms";
+import { NotificationEventHandlerComponent } from './notification-event-handler/notification-event-handler.component';
+import { NotificationEventComponent } from './notification-event/notification-event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JitsiConnectComponent,
-    JitsiApiClientComponent
+    JitsiApiClientComponent,
+    NotificationEventHandlerComponent,
+    NotificationEventComponent
   ],
   imports: [
     BrowserModule,

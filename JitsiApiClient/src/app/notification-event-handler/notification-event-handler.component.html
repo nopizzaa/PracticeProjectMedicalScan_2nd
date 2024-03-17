@@ -1,0 +1,10 @@
+<div class="position-fixed top-0 end-0 px-3 py-2 m-16" style="z-index: 280">
+  @for (notification of notifications;track notification;let i = $index) {
+    <div>
+      <app-notification-event
+        [message]="notification.message"
+        (disposeEvent)="dispose(i)"
+      ></app-notification-event>
+    </div>
+  }
+</div>
