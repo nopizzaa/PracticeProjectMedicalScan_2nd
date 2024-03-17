@@ -18,7 +18,11 @@ For this task, you'll need to learn how to use the Jitsi API by going through th
 3. **Documentation and Submission (Estimated Time: 30 minutes):**
     * Document any challenges you faced during the development process and how you overcame them.
     * Provide clear instructions on how to run your web application locally.
-            Submit your completed task within the designated timeframe.
+    * Submit your completed task within the designated timeframe.
 
 Remember, the primary goal of this task is to demonstrate your ability to learn and use a new API within a limited time frame. Focus on understanding the basics and implementing a functional web application that showcases your ability to integrate and utilize the Jitsi API effectively. Good luck!
 
+## Run application
+## Logs:
+- (eng) I first tried to run the Jitsi Meet application locally in a dockerized environment, following the instructions from the appropriate Jitsi repository ([link](https://github.com/jitsi/docker-jitsi-meet)). I modifying the docker-compose.yml and env files based on the documentation. Unfortunately, prosody XMPP server elements of the docker stack had refused the connection on localhost domain due to an SSL error. It seems that only communication via HTTPS with the other components of Jitsi is supported, and due to time constraints, I decided to abandon this deployment method for now. Although this solution seemed appealing due to the controlled environment and server logs.
+- (hu) Jitsi Meet alkalmazást először lokálisan, dockerizált környezetben próbáltam futtatni. Követtem a Jitsi megfelelő repositoryának instrukcióit ([link](https://github.com/jitsi/docker-jitsi-meet)), módosítottam a docker-compose.yml és env fájlokat a dokumentáció alapján. Viszont sajnálatos módon a docker stack egyik elemét, a Prosody XMPP szervert nem sikerült localhost domainen futtatnom SSL hiba miatt. Letsencrypt segítségével lehetet ki lehetett volna küszöbölni a hibát, mivel úgy tűnik sajnos csak HTTPS-en keresztül kommunikál a Jitsi többi komponensével. Az időkorlát miatt úgy döntöttem, hogy ezt a futtatási módot most elvetem. Pedig a kontrolláltabb környezet miatt vonzónak tűnt ez a megoldás.
