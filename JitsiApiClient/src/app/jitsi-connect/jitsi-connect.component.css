@@ -1,0 +1,18 @@
+.form-join-meeting {
+  padding-top: 20pt;
+  padding-bottom: 20pt;
+
+  .btn-meeting-submit {
+    margin-top: 10pt;
+  }
+
+  .input-meeting {
+    padding-top: 10pt;
+    padding-bottom: 15pt;
+  }
+
+  .disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+}
