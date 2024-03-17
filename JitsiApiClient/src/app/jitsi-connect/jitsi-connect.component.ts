@@ -82,7 +82,7 @@ export class JitsiConnectComponent implements OnInit{
 
     JitsiMeetJS.init();
 
-    const connection = new JitsiMeetJS.JitsiConnection(null, null, {hosts: {domain: 'meet.jit.si'}});
+    const connection = new JitsiMeetJS.JitsiConnection(null, null, testConfig);
     connection.addEventListener(JitsiMeetJS.events.connection.CONNECTION_ESTABLISHED, () => {
       console.log(connection);
     });
