@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {AfterContentInit, Component, Input, OnInit} from '@angular/core';
 import {ReadyToConnectService} from "../../services/ready-to-connect.service";
+import {NotificationService} from "../../services/notification.service";
 
 declare var JitsiMeetExternalAPI: any;
 
@@ -16,7 +17,7 @@ const commandMuteEveryone :string = 'muteEveryone';
   templateUrl: './jitsi-api-client.component.html',
   styleUrl: './jitsi-api-client.component.css'
 })
-export class JitsiApiClientComponent {
+export class JitsiApiClientComponent implements OnInit, AfterContentInit{
   @Input() meetingRoom!: string;
   @Input() name!: string;
 
@@ -28,6 +29,7 @@ export class JitsiApiClientComponent {
   isVideoMuted = false;
 
   constructor(
+    private notificationService: NotificationService,
     private showComponentService: ReadyToConnectService
   ) {}
 
@@ -47,6 +49,8 @@ export class JitsiApiClientComponent {
   }
 
   ngAfterContentInit() : void {
+    this.notificationService.showInfoToast(`Welcome! ${this.name}`);
+
     this.api = new JitsiMeetExternalAPI(jitsiDomain, this.options);
 
     this.api.addEventListeners({
@@ -60,27 +64,37 @@ export class JitsiApiClientComponent {
   }
 
   handleReadyToClose = () => {
-    console.log(`Call is ended`);
+    this.notificationService.showInfoToast(`Call is ended`);
   }
 
   handleParticipantLeft = async (participant: any) => {
-    console.log(`Participant left: ${participant.formattedDisplayName}`);
+    this.notificationService.showInfoToast(`Participant left: ${participant.formattedDisplayName}`);
   }
 
   handleParticipantJoined = async (participant: any) => {
-    console.log(`New participant has joined: ${participant.formattedDisplayName}`);
+    this.notificationService.showInfoToast(`New participant has joined: ${participant.formattedDisplayName}`);
   }
 
   handleHandleIncomingMessage = async (message: any) => {
-    console.log(`${message.nick}: ${message.message}`);
+    this.notificationService.showInfoToast(`${message.nick}: ${message.message}`);
   }
 
   handleAudioMuteStatusChanged = (audio: any) :void => {
     this.isAudioMuted = audio.muted;
+
+    if (this.isAudioMuted)
+      this.notificationService.showInfoToast('Microphone is off');
+    else
+      this.notificationService.showInfoToast('Microphone is on');
   }
 
   handleVideoMuteStatusChanged = (video: any) :void => {
     this.isVideoMuted = video.muted;
+
+    if (this.isVideoMuted)
+      this.notificationService.showInfoToast('Camera is off');
+    else
+      this.notificationService.showInfoToast('Camera is on');
   }
 
   getRoomInformation() {
@@ -121,6 +135,7 @@ export class JitsiApiClientComponent {
     this.api.executeCommand(command);
 
     if(command === commandEndCall) {
+      this.notificationService.showInfoToast(`Call is ended`);
       this.showComponentService.setConnectionIsReady(false);
       return;
     }

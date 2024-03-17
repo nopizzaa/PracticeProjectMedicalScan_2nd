@@ -6,6 +6,10 @@
     margin-right: auto;
   }
 
+  .btn-get-room-information {
+    float: right;
+  }
+
   .participants-card {
     height: 350px;
   }

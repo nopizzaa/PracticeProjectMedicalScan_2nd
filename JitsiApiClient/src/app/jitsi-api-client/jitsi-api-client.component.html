@@ -41,9 +41,7 @@
   <div class="col-lg-10">
     <div class="card participants-card">
       <div class="card-body">
-        <ng-container *ngIf="!roomInfo">
-          <button (click)="onGetRoomInformation()" class="btn btn-primary">Get Room Information</button>
-        </ng-container>
+        <button (click)="onGetRoomInformation()" class="btn btn-primary btn-get-room-information">Get Room Information</button>
 
         <ng-container *ngIf="roomInfo">
           <table class="table">
